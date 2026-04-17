@@ -19,13 +19,15 @@ RED = (255, 0, 0)
 
 
 def spawn_food(snake):
-    """Создает еду в случайной позиции, не занятой змейкой"""
+    """Создает еду на расстоянии минимум 2 клетки от головы змеи"""
+    head = snake[0]
     while True:
         pos = (random.randint(0, (WIDTH // CELL_SIZE) - 1) * CELL_SIZE,
                random.randint(0, (HEIGHT // CELL_SIZE) - 1) * CELL_SIZE)
-        if pos not in snake:
+        # Вычисляем манхэттенское расстояние от головы
+        dist = abs((pos[0] - head[0]) // CELL_SIZE) + abs((pos[1] - head[1]) // CELL_SIZE)
+        if pos not in snake and dist > 2:
             return pos
-
 
 def draw_game(snake, food, score):
     """Отрисовывает все элементы игры"""
