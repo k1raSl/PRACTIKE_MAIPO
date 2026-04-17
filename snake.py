@@ -75,10 +75,8 @@ def game_loop():
         snake.insert(0, new_head)
 
         # Проверка столкновения с едой
-        if new_head == food:
-            score += 1
-            food = spawn_food(snake)
-            speed += 0.5
+        if score % 3 == 0 and score > 0:
+            speed = 10 + (score // 3) * 1.5
         else:
             snake.pop()
 
@@ -123,7 +121,6 @@ def main():
                     elif event.key == pygame.K_ESCAPE:
                         pygame.quit()
                         sys.exit()
-cat chapter-1.txt
 
 if __name__ == "__main__":
     main()
