@@ -52,7 +52,7 @@ def game_loop():
     direction = (CELL_SIZE, 0)
     food = spawn_food(snake)
     score = 0
-    speed = 10
+    speed = 12
     running = True
 
     while running:
