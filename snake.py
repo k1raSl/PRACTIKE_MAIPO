@@ -52,7 +52,11 @@ def game_loop():
     direction = (CELL_SIZE, 0)
     food = spawn_food(snake)
     score = 0
+<<<<<<< HEAD
     speed = 12
+=======
+    speed = 15
+>>>>>>> conflict-test
     running = True
 
     while running:
